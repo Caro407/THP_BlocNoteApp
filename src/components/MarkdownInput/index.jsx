@@ -18,10 +18,10 @@ const MarkdownInput = (props) => {
     <div>
       <form onSubmit={sendNoteForUpdate}>
         <label>
-          New note :
-          <input type="text-area" name="name" id="input-note" onChange={addText} />
+          Contenu de la note :
+          <textarea id="input-note" name="story" rows="5" cols="33" onChange={addText} className="w-100"></textarea>
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Sauvegarder" className="btn btn-danger w-100"/>
       </form>
     </div>
   )

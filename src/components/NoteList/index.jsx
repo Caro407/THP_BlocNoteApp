@@ -4,10 +4,10 @@ import NotePreview from './../NotePreview';
 const NoteList = (props) => {
 
   return (
-    <div>
+    <div className="col-6">
       {props.notes.map((note, index) => {
         return (
-          <NotePreview key={index} content={note}/>
+          <NotePreview key={index} content={note} setCurrentNote={props.setCurrentNote} />
         )
       })}
 

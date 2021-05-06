@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import NoteList from './components/NoteList';
 import Note from './components/Note';
@@ -7,6 +8,7 @@ import Note from './components/Note';
 
 const App = () => {
   const [notes, setNotes] = React.useState([]);
+  const [currentNote, setCurrentNote] = React.useState('');
 
   const displayList = () => {
     let count = localStorage.getItem('note_count');
@@ -18,6 +20,7 @@ const App = () => {
       tab.push(localStorage.getItem(`note_id_${i}`));
     };
     setNotes(tab);
+    console.log(notes);
   };
 
   React.useEffect(() => {displayList()}, []);
@@ -33,11 +36,17 @@ const App = () => {
     displayList();
   };
 
+  const displayCurrentNote = (content) => {
+    setCurrentNote(content);
+  };
+
   return (
-    <div>
+    <div className="container">
       <h1>Bloc Note App</h1>
-      <NoteList notes={notes}/>
-      <Note saveNote={saveNewNote}/>
+      <div className="row">
+        <NoteList notes={notes} setCurrentNote={displayCurrentNote} />
+        <Note saveNote={saveNewNote} currentNote={currentNote} />
+      </div>
     </div>
   )
 };
