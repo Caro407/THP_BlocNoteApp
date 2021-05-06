@@ -8,7 +8,7 @@ import Note from './components/Note';
 
 const App = () => {
   const [notes, setNotes] = React.useState([]);
-  const [currentNote, setCurrentNote] = React.useState('');
+  const [currentNoteId, setCurrentNote] = React.useState('');
 
   const displayList = () => {
     let count = localStorage.getItem('note_count');
@@ -36,8 +36,15 @@ const App = () => {
     displayList();
   };
 
-  const displayCurrentNote = (content) => {
-    setCurrentNote(content);
+  const updateCurrentNote = (text, id) => {
+    console.log(id + '|' + text);
+    localStorage.setItem(`note_id_${id}`, text);
+    displayList();
+  };
+
+  const displayCurrentNote = (id) => {
+    let note = localStorage.getItem(`note_id_${id}`);
+    setCurrentNote(id);
   };
 
   return (
@@ -45,7 +52,7 @@ const App = () => {
       <h1>Bloc Note App</h1>
       <div className="row">
         <NoteList notes={notes} setCurrentNote={displayCurrentNote} />
-        <Note saveNote={saveNewNote} currentNote={currentNote} />
+        <Note saveNote={saveNewNote} currentNoteId={currentNoteId} updateCurrentNote={updateCurrentNote} />
       </div>
     </div>
   )

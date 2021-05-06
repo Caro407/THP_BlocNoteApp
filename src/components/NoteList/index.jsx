@@ -7,7 +7,7 @@ const NoteList = (props) => {
     <div className="col-6">
       {props.notes.map((note, index) => {
         return (
-          <NotePreview key={index} content={note} setCurrentNote={props.setCurrentNote} />
+          <NotePreview key={index} id={index} content={note} setCurrentNote={props.setCurrentNote} />
         )
       })}
 

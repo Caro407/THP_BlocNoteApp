@@ -1,9 +1,9 @@
 import React from 'react';
 
 const NotePreview = (props) => {
-  
+
   const displayNote = () => {
-    props.setCurrentNote(props.content);
+    props.setCurrentNote(props.id);
   };
 
   return (

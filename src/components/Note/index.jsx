@@ -11,8 +11,8 @@ const Note = (props) => {
 
   return (
     <div className="col-6">
-      <NoteDisplay content={props.currentNote}/>
-      <MarkdownInput saveNote={props.saveNote} updateNote={updateDisplay}/>
+      <NoteDisplay noteId={props.currentNoteId}/>
+      <MarkdownInput saveNote={props.saveNote} updateNote={updateDisplay} currentNoteId={props.currentNoteId} updateCurrentNote={props.updateCurrentNote}/>
     </div>
   )
 };
