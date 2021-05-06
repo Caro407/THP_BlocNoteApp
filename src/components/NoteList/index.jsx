@@ -4,6 +4,7 @@ const NoteList = () => {
   return (
     <div>
       Note Container
+      
     </div>
   )
 };

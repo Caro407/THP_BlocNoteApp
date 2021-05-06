@@ -1,9 +1,10 @@
 import React from 'react';
 
-const NoteDisplay = () => {
+const NoteDisplay = (props) => {
   return (
     <div>
       Note Display Container
+      <p>{props.content}</p>
     </div>
   )
 }

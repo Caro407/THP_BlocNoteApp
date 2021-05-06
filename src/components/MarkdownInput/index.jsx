@@ -1,9 +1,29 @@
 import React from 'react';
 
-const MarkdownInput = () => {
+const MarkdownInput = (props) => {
+  const [input, setInput] = React.useState({text: ''});
+
+  const sendNoteForUpdate = (event) => {
+    event.preventDefault();
+    props.saveNote(input.text);
+    props.updateNote(input.text);
+  };
+
+  const addText = (text) => {
+    let value = document.getElementById('input-note').value;
+    console.log(value);
+    setInput({text: value});
+  };
+
   return (
     <div>
-      MarkdownInput Area
+      <form onSubmit={sendNoteForUpdate}>
+        <label>
+          New note :
+          <input type="text-area" name="name" id="input-note" onChange={addText} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
     </div>
   )
 }
