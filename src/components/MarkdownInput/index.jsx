@@ -11,7 +11,6 @@ const MarkdownInput = (props) => {
 
   const addText = (text) => {
     let value = document.getElementById('input-note').value;
-    console.log(value);
     setInput({text: value});
   };
 
