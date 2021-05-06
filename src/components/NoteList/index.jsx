@@ -1,10 +1,16 @@
 import React from 'react';
+import NotePreview from './../NotePreview';
 
-const NoteList = () => {
+const NoteList = (props) => {
+
   return (
     <div>
-      Note Container
-      
+      {props.notes.map((note, index) => {
+        return (
+          <NotePreview key={index} content={note}/>
+        )
+      })}
+
     </div>
   )
 };
