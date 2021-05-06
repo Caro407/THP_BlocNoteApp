@@ -27,11 +27,11 @@ const App = () => {
 
   const saveNewNote = (text) => {
     let count = localStorage.getItem('note_count');
-    let newNote = JSON.stringify(text);
-    if(count === undefined){
+    if(!count){
       localStorage.setItem('note_count', "0");
+      count = 0;
     };
-    localStorage.setItem(`note_id_${count}`, `${newNote}`);
+    localStorage.setItem(`note_id_${count}`, `${text}`);
     localStorage.setItem('note_count', `${Number.parseInt(count)+1}`);
     displayList();
   };
